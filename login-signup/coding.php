@@ -1,6 +1,7 @@
 <?php
 
 include("connection.php");
+session_start();
 
 //Register Work
 
@@ -24,31 +25,15 @@ if (isset($_POST['regbtn'])) {
 
 //Login Work 
 
-// if (isset($_GET['logbtn'])) {
+if (isset($_GET['logbtn'])) {
 
-//     $e=$_GET['useremail'];
-//     $pass=$_GET['userpass'];
-
-//     $query=mysqli_query($con,"SELECT * FROM `tblreg` WHERE Email='$e' and Password='$pass' ");
-
-//     if (mysqli_num_rows($query)) {
-//         echo "<script>alert('Login Successfull')</script>";
-//     }
-
-//     else {
-//         echo "<script>alert('Login Failed!')</script>";
-//     }
-
-// }
-
-if (isset($_POST['logbtn'])) {
-
-    $e=$_POST['useremail'];
-    $pass=$_POST['userpass'];
+    $e=$_GET['useremail'];
+    $pass=$_GET['userpass'];
 
     $query=mysqli_query($con,"SELECT * FROM `tblreg` WHERE Email='$e' and Password='$pass' ");
 
     if (mysqli_num_rows($query)) {
+        $_SESSION['login_user']=$e;
         echo "<script>alert('Login Successfull')</script>";
     }
 
@@ -57,6 +42,7 @@ if (isset($_POST['logbtn'])) {
     }
 
 }
+
 
 
 ?>
