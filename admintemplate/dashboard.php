@@ -199,6 +199,8 @@ include("connection.php");
         </div>
         <div class="card-body">
             <div class="table-responsive">
+                
+                //IMAGE UPLOADING START
                 <?php
                 $query="SELECT * FROM `imguploading`";
                 $r=mysqli_query($con,$query);
@@ -232,6 +234,7 @@ include("connection.php");
 
                 echo "</table>";
                 ?>
+                //IMAGE UPLOADING END
             </div>
         </div>
         <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
